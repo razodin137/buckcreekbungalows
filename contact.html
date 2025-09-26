@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Buck Creek Bungalows</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .transition-fade {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-700">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 transition-fade">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-serif font-semibold text-gray-800">Buck Creek Bungalows</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-yellow-600 transition-colors">Home</a>
+                    <a href="index.html#about" class="text-gray-600 hover:text-yellow-600 transition-colors">About</a>
+                    <a href="index.html#gallery" class="text-gray-600 hover:text-yellow-600 transition-colors">Gallery</a>
+                    <a href="index.html#faq" class="text-gray-600 hover:text-yellow-600 transition-colors">FAQ</a>
+                    <a href="contact.html" class="text-yellow-600 font-medium">Contact</a>
+                </div>
+<a href="https://www.airbnb.com/rooms/4188655" class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors font-medium">
+                    Check Availability
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6">Get In Touch</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Have questions about your stay? We're here to help make your Buck Creek experience unforgettable.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Send Us a Message</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Whether you're planning your first visit or have questions about an upcoming stay, 
+                        we're happy to assist you. Fill out the form and we'll get back to you within 24 hours.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i data-feather="clock" class="w-6 h-6 text-yellow-500 mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="text-lg font-serif font-semibold mb-2">Quick Response</h4>
+                                <p class="text-gray-600">We typically respond to all inquiries within 24 hours.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i data-feather="help-circle" class="w-6 h-6 text-yellow-500 mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="text-lg font-serif font-semibold mb-2">Expert Advice</h4>
+                                <p class="text-gray-600">Get personalized recommendations for your stay.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i data-feather="heart" class="w-6 h-6 text-yellow-500 mr-4 mt-1"></i>
+                            <div>
+                                <h4 class="text-lg font-serif font-semibold mb-2">Personalized Service</h4>
+                                <p class="text-gray-600">We treat every guest like family.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" data-aos-delay="200">
+                    <form name="contact" method="POST" netlify class="bg-gray-50 rounded-2xl p-8 shadow-lg" netlify>
+                        <input type="hidden" name="form-name" value="contact">
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Full Name *</label>
+                            <input type="text" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 transition-colors">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Email Address *</label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 transition-colors">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Phone Number</label>
+                            <input type="tel" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 transition-colors">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Subject</label>
+                            <select name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 transition-colors">
+                                <option value="general">General Inquiry</option>
+                                <option value="booking">Booking Question</option>
+                                <option value="amenities">Amenities Information</option>
+                                <option value="group">Group Booking</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-gray-700 mb-2 font-medium">Message *</label>
+                            <textarea name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500 transition-colors"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-yellow-500 text-white px-8 py-4 rounded-lg hover:bg-yellow-600 transition-colors font-semibold text-lg w-full">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Other Ways to Reach Us</h2>
+                <p class="text-xl text-gray-600">Prefer to contact us directly? Here's how.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <i data-feather="phone" class="w-16 h-16 text-yellow-500 mx-auto mb-6"></i>
+                    <h3 class="text-2xl font-serif font-semibold mb-4">Phone</h3>
+                    <p class="text-gray-600 mb-4">(606) 308-2745</p>
+                    <p class="text-sm text-gray-500">Mon-Fri: 9AM-6PM EST</p>
+                    <p class="text-sm text-gray-500">Sat-Sun: 10AM-4PM EST</p>
+                </div>
+                
+                <div class="text-center bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <i data-feather="mail" class="w-16 h-16 text-yellow-500 mx-auto mb-6"></i>
+                    <h3 class="text-2xl font-serif font-semibold mb-4">Email</h3>
+                    <p class="text-gray-600 mb-4">gerald@buckcreekbungalows.com</p>
+                    <p class="text-sm text-gray-500">For general inquiries and bookings</p>
+                </div>
+                
+                <div class="text-center bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <i data-feather="map-pin" class="w-16 h-16 text-yellow-500 mx-auto mb-6"></i>
+                    <h3 class="text-2xl font-serif font-semibold mb-4">Location</h3>
+                    <p class="text-gray-600 mb-4">9700 Rush Branch Rd</p>
+                    <p class="text-sm text-gray-500">Somerset, KY 42501</p>
+                    <p class="text-sm text-gray-500">Lake Cumberland Area</p>
+                </div>
+</div>
+        </div>
+    </section>
+
+    <!-- FAQ Preview Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6">Common Questions</h2>
+                <p class="text-xl text-gray-600 mb-8">Quick answers to our most frequently asked questions</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 text-left" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <h4 class="text-lg font-serif font-semibold mb-3">What's included in the rental?</h4>
+                    <p class="text-gray-600 mb-6">All bungalows include full kitchen amenities, linens, towels, Wi-Fi, smart TV, outdoor grill, fire pit, and complimentary water sports equipment.</p>
+                    
+                    <h4 class="text-lg font-serif font-semibold mb-3">Is there a minimum stay requirement?</h4>
+                    <p class="text-gray-600">We have a 2-night minimum stay requirement for weekends and a 3-night minimum for holiday weekends.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-serif font-semibold mb-3">Are pets allowed?</h4>
+                    <p class="text-gray-600 mb-6">No pets, and please don't feed any wildlife.</p>
+<h4 class="text-lg font-serif font-semibold mb-3">What's your cancellation policy?</h4>
+                    <p class="text-gray-600">Full refund up to 30 days before check-in. Please contact us for specific policy details and special circumstances.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12" data-aos="fade-up" data-aos-delay="200">
+                <a href="index.html#faq" class="bg-yellow-500 text-white px-8 py-4 rounded-lg hover:bg-yellow-600 transition-colors font-semibold text-lg inline-block">
+                    View All FAQs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-serif font-semibold mb-4">Buck Creek Bungalows</h3>
+                    <p class="text-gray-400">Experience luxury cabin rentals with stunning lake views and modern amenities.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-500 transition-colors">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-yellow-500 transition-colors">About</a></li>
+                        <li><a href="index.html#gallery" class="text-gray-400 hover:text-yellow-500 transition-colors">Gallery</a></li>
+                        <li><a href="index.html#faq" class="text-gray-400 hover:text-yellow-500 transition-colors">FAQ</a></li>
+                        <li><a href="contact.html" class="text-yellow-500 font-medium">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Amenities</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Lake Access</li>
+                        <li>Solar Powered</li>
+                        <li>Water Sports</li>
+                        <li>Modern Comforts</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-500 transition-colors">
+                            <i data-feather="twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Buck Creek Bungalows. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white', 'shadow-lg');
+                nav.classList.remove('bg-white/90');
+            } else {
+                nav.classList.remove('bg-white', 'shadow-lg');
+                nav.classList.add('bg-white/90');
+            }
+        });
+
+        // Form submission handling
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // Netlify will handle the form submission
+                // You can add additional validation or confirmation here if needed
+            });
+        }
+    </script>
+</body>
+</html>

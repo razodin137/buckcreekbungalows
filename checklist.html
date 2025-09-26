@@ -1,0 +1,127 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Checklist - Buck Creek Bungalows</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .checklist-item {
+            transition: all 0.3s ease;
+        }
+        .checklist-item:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-serif font-semibold text-gray-800">Buck Creek Bungalows</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-yellow-600 transition-colors">Home</a>
+                    <a href="index.html#about" class="text-gray-600 hover:text-yellow-600 transition-colors">About</a>
+                    <a href="index.html#gallery" class="text-gray-600 hover:text-yellow-600 transition-colors">Gallery</a>
+                    <a href="index.html#faq" class="text-gray-600 hover:text-yellow-600 transition-colors">FAQ</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-yellow-600 transition-colors">Contact</a>
+                    <a href="checklist.html" class="text-yellow-600 font-medium">Guest Checklist</a>
+                </div>
+                <a href="https://www.airbnb.com/rooms/4188655" class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors font-medium">
+                    Check Availability
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content - Single Column -->
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Image 1 -->
+            <div class="mb-12">
+                <img src="/images/1.png" alt="Checklist Page 1" class="w-full rounded-2xl shadow-lg">
+            </div>
+            
+            <!-- Image 2 -->
+            <div class="mb-12">
+                <img src="/images/2.png" alt="Checklist Page 2" class="w-full rounded-2xl shadow-lg">
+            </div>
+        </div>
+    </section>
+            <!-- Local Attractions -->
+            <div class="mt-16 bg-white rounded-2xl p-8 shadow-lg">
+                <h3 class="text-3xl font-serif font-bold mb-8 text-center">Local Attractions</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <i data-feather="anchor" class="w-8 h-8 text-yellow-500 mx-auto mb-3"></i>
+                        <h4 class="font-semibold mb-2">Burnside Marina</h4>
+                        <p class="text-gray-600 text-sm">13.9 miles • 20 minutes</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <i data-feather="tree" class="w-8 h-8 text-yellow-500 mx-auto mb-3"></i>
+                        <h4 class="font-semibold mb-2">Cumberland Falls State Park</h4>
+                        <p class="text-gray-600 text-sm">40.0 miles • 51 minutes</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <i data-feather="map" class="w-8 h-8 text-yellow-500 mx-auto mb-3"></i>
+                        <h4 class="font-semibold mb-2">Lake Cumberland State Resort Park</h4>
+                        <p class="text-gray-600 text-sm">58.6 miles • 1 hour 9 minutes</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <i data-feather="flag" class="w-8 h-8 text-yellow-500 mx-auto mb-3"></i>
+                        <h4 class="font-semibold mb-2">General Burnside Island Golf Course</h4>
+                        <p class="text-gray-600 text-sm">15.6 miles • 24 minutes</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <i data-feather="shopping-bag" class="w-8 h-8 text-yellow-500 mx-auto mb-3"></i>
+                        <h4 class="font-semibold mb-2">Somerset, KY</h4>
+                        <p class="text-gray-600 text-sm">10.3 miles • 16 minutes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources -->
+            <div class="mt-12 bg-yellow-50 rounded-2xl p-8 shadow-lg border-l-4 border-yellow-500">
+                <h3 class="text-2xl font-serif font-bold mb-6">Local Resources</h3>
+                <p class="text-gray-700 mb-4">For a schedule of local events and shows, check out these local resources:</p>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <a href="#" class="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow">
+                        <p class="font-semibold">The Pulaski County Website</p>
+                    </a>
+                    <a href="#" class="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow">
+                        <p class="font-semibold">Lake Cumberland Tourism</p>
+                    </a>
+                    <a href="#" class="bg-white rounded-lg p-4 text-center hover:shadow-md transition-shadow">
+                        <p class="font-semibold">Master Musicians Festival (July)</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-serif font-semibold mb-4">Buck Creek Bungalows</h3>
+                    <p class="text-gray-400">Experience luxury cabin rentals with stunning lake views and modern amenities.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-500 transition-colors">Home</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-yellow
