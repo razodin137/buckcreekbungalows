@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buck Creek Bungalows - Lake Cumberland Cabin Rentals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+/* 
+===================================
+BACKGROUND IMAGE PLACEHOLDERS
+===================================
+*/
+
+/* Hero section background */
+.hero-section {
+    background-image: url(https://lh3.googleusercontent.com/geougc/AF1QipPSb9AaJMJjYGQeyXqqZOu7-iEZRh_t6i-_SG-u=h400-no);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Hero overlay */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-section > div {
+    position: relative;
+    z-index: 2;
+}
+
+/* Leather sofa image */
+.leather-img {
+    background-image: url(https://a0.muscache.com/im/pictures/824b9697-b22e-4b1d-b85c-992f6207ef8d.jpg?im_w=1200);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Cabin image */
+.cabin-img {
+    background-image: url(https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDE4ODY1NQ%3D%3D/original/d6abc091-edb8-4733-a092-7e4e26e5bd77.jpeg?im_w=1200);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Lake image */
+.lake-img {
+    background-image: url(https://a0.muscache.com/im/pictures/96305951/aa475c5e_original.jpg?im_w=1200);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Interior image */
+.interior-img {
+    background-image: url(https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDE4ODY1NQ%3D%3D/original/9c09b639-65de-45fa-b8e6-f61b35b44ec7.jpeg?im_w=1200);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Monitor image */
+.monitor-img {
+    background-image: url(https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDE4ODY1NQ%3D%3D/original/7edea02c-714c-43e8-9de9-43423d698e4c.jpeg?im_w=1440);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Textile CTA image */
+.textile-img {
+    background-image: url(https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDE4ODY1NQ%3D%3D/original/84be799a-f962-4f3e-a703-66b1ef00ef7b.jpeg?im_w=1200);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Lake2 image (Gallery image 6) */
+.lake2-img {
+    background-image: url(https://a0.muscache.com/im/pictures/96305067/8e31fa04_original.jpg?im_w=1440);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Interactive elements */
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.faq-item:hover {
+    background-color: rgba(243, 244, 246, 0.5);
+}
+
+    </style>
+</head>
+<body class="bg-stone-50">
+    <!-- 
+    ==============================================
+    NAVIGATION BAR
+    ==============================================
+    -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Site logo/name - You can replace with an image logo -->
+            <a href="#" class="text-2xl font-bold playfair text-amber-800">Buck Creek Bungalows</a>
+            
+            <!-- Desktop navigation menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-amber-700 transition">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-amber-700 transition">About</a>
+                <a href="#features" class="text-gray-700 hover:text-amber-700 transition">Features</a>
+                <a href="#gallery" class="text-gray-700 hover:text-amber-700 transition">Gallery</a>
+                <a href="#faq" class="text-gray-700 hover:text-amber-700 transition">FAQ</a>
+                <a href="#contact" class="text-gray-700 hover:text-amber-700 transition">Contact</a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button class="md:hidden text-gray-700 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            
+            <!-- Book now button -->
+            <a href="https://www.airbnb.com/rooms/4188655" class="hidden md:block bg-amber-700 hover:bg-amber-800 text-white font-medium py-2 px-6 rounded-md transition">Book Now</a>
+        </div>
+    </nav>
+
+    <!-- 
+    ==============================================
+    MOBILE MENU (hidden by default)
+    ==============================================
+    -->
+    <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 z-40 flex flex-col items-center justify-center space-y-8">
+        <a href="#home" class="text-white text-xl hover:text-amber-300 transition">Home</a>
+        <a href="#about" class="text-white text-xl hover:text-amber-300 transition">About</a>
+        <a href="#features" class="text-white text-xl hover:text-amber-300 transition">Features</a>
+        <a href="#gallery" class="text-white text-xl hover:text-amber-300 transition">Gallery</a>
+        <a href="#faq" class="text-white text-xl hover:text-amber-300 transition">FAQ</a>
+        <a href="#contact" class="text-white text-xl hover:text-amber-300 transition">Contact</a>
+        <a href="https://www.airbnb.com/rooms/4188655" class="bg-amber-700 hover:bg-amber-800 text-white font-medium py-2 px-6 rounded-md transition">Book Now</a>
+        <button class="absolute top-4 right-4 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- 
+    ==============================================
+    HERO SECTION
+    ==============================================
+    Background: Add a lake/cabin image as the background for this section
+    Edit the hero-section class in the CSS above to add your image
+    -->
+    <section id="home" class="hero-section min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-16">
+            <div class="max-w-3xl mx-auto text-center text-white">
+                <!-- Booking banner -->
+                <div class="bg-amber-700 inline-block px-4 py-1 rounded-full mb-4">
+                    <p class="font-medium">Now Booking for WINTER 2025</p>
+                </div>
+                
+                <!-- Main heading -->
+                <h1 class="text-5xl md:text-6xl font-bold playfair mb-6">Escape to Buck Creek Bungalows</h1>
+                
+                <!-- Subheading -->
+                <p class="text-xl mb-8">Experience the tranquility of Buck Creek, with access to Lake Cumberland</p>
+                
+                <!-- Ratings -->
+                <div class="mb-8">
+                    <div class="flex justify-center items-center mb-2">
+                        <span class="text-amber-400 text-2xl">★★★★★</span>
+                    </div>
+                    <p class="text-lg">Rated highly by guests</p>
+                </div>
+                
+                <!-- CTA Button -->
+                <a href="https://www.airbnb.com/rooms/4188655" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition inline-block">Check Availability</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ==============================================
+    ABOUT SECTION
+    ==============================================
+    Image: Add your leather sofa image in the leather-img div below
+    Edit the leather-img class in the CSS above to add your image
+    -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Left side - Image -->
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <!--
+                    ABOUT SECTION IMAGE:
+                    This div uses the 'leather-img' class for a background image.
+                    To add your image, edit the .leather-img CSS class above.
+                    Example for local: background-image: url('images/leather-sofa.jpg');
+                    Example for web: background-image: url('https://example.com/leather-sofa.jpg');
+                    -->
+                    <div class="leather-img h-64 md:h-96 rounded-lg shadow-lg"></div>
+                </div>
+                
+                <!-- Right side - Content -->
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl md:text-4xl font-bold playfair text-gray-800 mb-6">Lake House Rental With Scenic Views</h2>
+                    <p class="text-lg text-gray-600 mb-8">Experience the beauty of Somerset, Kentucky with our cozy cabin rental options.</p>
+                    
+                    <!-- Feature cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-amber-50 p-6 rounded-lg border border-amber-100">
+                            <h3 class="text-xl font-semibold text-amber-800 mb-3">Cozy Cabin Retreat</h3>
+                            <p class="text-gray-600">Enjoy nature and relaxation in our beautiful cabin accommodations.</p>
+                        </div>
+                        <div class="bg-amber-50 p-6 rounded-lg border border-amber-100">
+                            <h3 class="text-xl font-semibold text-amber-800 mb-3">Adventure Awaits You</h3>
+                            <p class="text-gray-600">Explore local attractions and outdoor activities just minutes away from your cabin.</p>
+                        </div>
+                        <div class="bg-amber-50 p-6 rounded-lg border border-amber-100 md:col-span-2">
+                            <h3 class="text-xl font-semibold text-amber-800 mb-3">Unforgettable Getaways</h3>
+                            <p class="text-gray-600">Enjoy nature and relaxation in our beautiful cabin accommodations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ==============================================
+    FEATURES SECTION
+    ==============================================
+    Images: Add cabin, lake, and interior images in the respective divs below
+    Edit the cabin-img, lake-img, and interior-img classes in the CSS above
+    -->
+    <section id="features" class="py-20 bg-stone-100">
+        <div class="container mx-auto px-4">
+            <!-- Section header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold playfair text-gray-800 mb-4">Welcome to Buck Creek</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Discover the charm of our cabin rental in beautiful Somerset, Kentucky, where nature meets comfort for your perfect getaway.</p>
+            </div>
+            
+            <!-- Feature cards with images -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 - Replace background with cabin image -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <!--
+                    FEATURES SECTION CABIN IMAGE:
+                    This div uses the 'cabin-img' class for a background image.
+                    To add your image, edit the .cabin-img CSS class above.
+                    Example: background-image: url('images/cabin.jpg');
+                    -->
+                    <div class="h-48 cabin-img rounded-md mb-4"></div>
+                    <h3 class="text-xl font-semibold text-amber-800 mb-2">Solar-Powered Comfort</h3>
+                    <p class="text-gray-600">Our eco-friendly bungalows are powered by the sun while providing all modern amenities.</p>
+                </div>
+                
+                <!-- Feature 2 - Replace background with lake image -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <!--
+                    FEATURES SECTION LAKE IMAGE:
+                    This div uses the 'lake-img' class for a background image.
+                    To add your image, edit the .lake-img CSS class above.
+                    Example: background-image: url('images/lake.jpg');
+                    -->
+                    <div class="h-48 lake-img rounded-md mb-4"></div>
+                    <h3 class="text-xl font-semibold text-amber-800 mb-2">Direct Lake Access</h3>
+                    <p class="text-gray-600">Enjoy immediate access to Lake Cumberland with our private lit walkway to the water.</p>
+                </div>
+                
+                <!-- Feature 3 - Replace background with interior image -->
+                <div class="feature-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                    <!--
+                    FEATURES SECTION INTERIOR IMAGE:
+                    This div uses the 'interior-img' class for a background image.
+                    To add your image, edit the .interior-img CSS class above.
+                    Example: background-image: url('images/interior.jpg');
+                    -->
+                    <div class="h-48 interior-img rounded-md mb-4"></div>
+                    <h3 class="text-xl font-semibold text-amber-800 mb-2">Family-Friendly Amenities</h3>
+                    <p class="text-gray-600">From water sports equipment to outdoor games, we have everything for a perfect family vacation.</p>
+                </div>
+            </div>
+            
+            <!-- CTA button -->
+            <div class="text-center mt-12">
+                <a href="https://www.airbnb.com/rooms/4188655" class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-8 rounded-lg text-lg transition inline-block">Book Your Stay</a>
+            </div>
+        </div>
+    </section>
+
+<!-- 
+==============================================
+GALLERY SECTION
+==============================================
+Images: Add your gallery images in each div below
+Use the same image classes defined above or create new ones
+-->
+<section id="gallery" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <!-- Section header -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold playfair text-gray-800 mb-4">Gallery</h2>
+            <p class="text-lg text-gray-600">Explore our beautiful cabin rental in Somerset, Kentucky.</p>
+        </div>
+
+        <!-- Gallery grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Gallery image 1 - Cabin exterior -->
+            <div class="overflow-hidden rounded-lg shadow-md">
+                <div class="cabin-img h-64 hover:scale-105 transition duration-500"></div>
+            </div>
+
+            <!-- Gallery image 2 - Lake view -->
+            <div class="overflow-hidden rounded-lg shadow-md">
+                <div class="lake-img h-64 hover:scale-105 transition duration-500"></div>
+            </div>
+
+            <!-- Gallery image 3 - Cabin interior -->
+            <div class="overflow-hidden rounded-lg shadow-md">
+                <div class="interior-img h-64 hover:scale-105 transition duration-500"></div>
+            </div>
+
+            <!-- Gallery image 4 - Wide monitor/TV image (spans 2 columns) -->
+            <div class="overflow-hidden rounded-lg shadow-md">
+                <div class="monitor-img h-64 bg-gray-200 hover:scale-105 transition duration-500"></div>
+            </div>
+
+            <!-- Gallery image 5 - Leather furniture -->
+            <div class="overflow-hidden rounded-lg shadow-md">
+                <div class="leather-img h-64 hover:scale-105 transition duration-500"></div>
+            </div>
+
+            <!-- Gallery image 6 - Lake view 2 -->
+            <div class="overflow-hidden rounded-lg shadow-md">
+                <div class="lake2-img h-64 hover:scale-105 transition duration-500"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- 
+    ==============================================
+    FAQ SECTION
+    ==============================================
+    No images in this section, but you can add a background image to the entire section
+    by adding a background-image to the section element if desired
+    -->
+    <section id="faq" class="py-20 bg-stone-100">
+        <div class="container mx-auto px-4">
+            <!-- Section header -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold playfair text-gray-800 mb-4">Frequently Asked Questions</h2>
+            </div>
+            
+            <!-- FAQ items -->
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <!-- FAQ item 1 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">What makes Buck Creek Bungalows unique?</h3>
+                        <p class="text-gray-600">Buck Creek Bungalows is a solar-powered lakefront property with direct water access, multiple viewing decks, and modern amenities. We're just minutes from Somerset while offering peaceful seclusion and immediate boat ramp access.</p>
+                    </div>
+                    
+                    <!-- FAQ item 2 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">What water activities are available?</h3>
+                        <p class="text-gray-600">We provide complimentary canoes, paddle boards, and life vests. The property has direct lake access via a lit walkway, and there's a boat ramp adjacent to the property for easy launching.</p>
+                    </div>
+                    
+                    <!-- FAQ item 3 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">What outdoor amenities are included?</h3>
+                        <p class="text-gray-600">The property features volleyball/badminton courts, multiple viewing decks, a fire pit, ample parking, and direct lake access. We also provide water equipment like canoes and paddle boards.</p>
+                    </div>
+                    
+                    <!-- FAQ item 4 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">What is your minimum stay requirement?</h3>
+                        <p class="text-gray-600">We offer flexible booking options with a minimum stay of two nights for short-term rentals. We also offer both weekly discounts and affordable monthly rates for extended stays.</p>
+                    </div>
+                    
+                    <!-- FAQ item 5 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">How many guests can the property accommodate?</h3>
+                        <p class="text-gray-600">The property comfortably sleeps up to 11 guests with 3 bedrooms, 5 beds, and 2 bathrooms.</p>
+                    </div>
+                    
+                    <!-- FAQ item 6 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">Is the property family-friendly?</h3>
+                        <p class="text-gray-600">Yes! We're very family-friendly with activities for all ages, including water sports, outdoor games, and spacious common areas. We provide safety equipment for water activities.</p>
+                    </div>
+                    
+                    <!-- FAQ item 7 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">How far are you from Somerset?</h3>
+                        <p class="text-gray-600">We're conveniently located just minutes from Somerset, offering easy access to restaurants, shopping, and entertainment while maintaining our peaceful lakefront setting.</p>
+                    </div>
+                    
+                    <!-- FAQ item 8 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">What's parking like at the property?</h3>
+                        <p class="text-gray-600">We offer ample free parking on premises, with space for both vehicles and boat trailers.</p>
+                    </div>
+                    
+                    <!-- FAQ item 9 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">Is there easy water access?</h3>
+                        <p class="text-gray-600">Yes! We have a lit walkway directly to the water and are adjacent to a boat ramp. It's just a two-minute walk from the house to the water.</p>
+                    </div>
+                    
+                    <!-- FAQ item 10 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">What modern amenities are included?</h3>
+                        <p class="text-gray-600">The property features WiFi, smart TV, keypad entry, modern appliances, washer/dryer, and a fully equipped kitchen with BBQ facilities.</p>
+                    </div>
+                    
+                    <!-- FAQ item 11 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">Is there internet access?</h3>
+                        <p class="text-gray-600">Yes, we provide complimentary WiFi throughout the property.</p>
+                    </div>
+                    
+                    <!-- FAQ item 12 -->
+                    <div class="faq-item bg-white p-6 rounded-lg shadow-sm transition duration-300">
+                        <h3 class="text-xl font-semibold text-amber-800 mb-2">Is the property solar-powered?</h3>
+                        <p class="text-gray-600">Yes! We're proud to be powered by grid-tied solar, meaning your stay is powered by the sun while maintaining reliable power access.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ==============================================
+    CTA SECTION
+    ==============================================
+    Image: Add your textile image in the textile-img div below
+    Edit the textile-img class in the CSS above to add your image
+    -->
+    <section class="py-20 bg-amber-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <!-- Left side - Image -->
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <!--
+                    CTA SECTION TEXTILE IMAGE:
+                    This div uses the 'textile-img' class for a background image.
+                    To add your image, edit the .textile-img CSS class above.
+                    Example: background-image: url('images/textile.jpg');
+                    -->
+                    <div class="textile-img h-64 rounded-lg shadow-lg"></div>
+                </div>
+                
+                <!-- Right side - Content -->
+                <div class="md:w-1/2 md:pl-12 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold playfair mb-4">Enjoy Yourself</h2>
+                    <p class="text-xl mb-8">You didn't come this far to stop.</p>
+                    <a href="https://www.airbnb.com/rooms/4188655" class="bg-white hover:bg-gray-100 text-amber-800 font-bold py-3 px-8 rounded-lg text-lg transition inline-block">Book Your Stay</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ==============================================
+    BOOKING SECTION
+    ==============================================
+    You can add a background image to this entire section if desired
+    by adding a background-image to the section element
+    -->
+
+
+
+
+    <!-- 
+    ==============================================
+    CONTACT SECTION
+    ==============================================
+    You can add a background image to this entire section if desired
+    by adding a background-image to the section element
+    -->
+    <section id="contact" class="py-20 bg-stone-100">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Section header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold playfair text-gray-800 mb-4">Contact</h2>
+                    <p class="text-lg text-gray-600">Have questions? Get in touch with us.</p>
+                </div>
+                
+                <!-- Contact info and form -->
+                <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden">
+                    <!-- Contact information -->
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-2xl font-semibold text-amber-800 mb-4">Get In Touch</h3>
+                        <div class="space-y-4">
+                            <!-- Email -->
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                                <div>
+                                    <p class="font-medium text-gray-700">Email</p>
+                                    <a href="mailto:wal61ker@gmail.com" class="text-amber-700 hover:text-amber-800">wal61ker@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <!-- Phone -->
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700 mr-3 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                                <div>
+                                    <p class="font-medium text-gray-700">Phone</p>
+                                    <a href="tel:+16063082745" class="text-amber-700 hover:text-amber-800">+1 606-308-2745</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+    ==============================================
+    FOOTER
+    ==============================================
+    You can add a background image to the footer if desired
+    by adding a background-image to the footer element
+    -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <!-- Footer content -->
+            <div class="flex flex-col md:flex-row justify-between">
+                <!-- Logo and description -->
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-2xl font-bold playfair mb-4">Buck Creek Bungalows</h3>
+                    <p class="text-gray-400 max-w-xs">Experience the tranquility of Buck Creek, with access to Lake Cumberland in beautiful Somerset, Kentucky.</p>
+                </div>
+                
+                <!-- Footer links -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <!-- Explore links -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Explore</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-amber-400 transition">Home</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-amber-400 transition">About</a></li>
+                            <li><a href="#features" class="text-gray-400 hover:text-amber-400 transition">Features</a></li>
+                            <li><a href="#gallery" class="text-gray-400 hover:text-amber-400 transition">Gallery</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Stay links -->
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Stay</h4>
+                        <ul class="space-y-2">
+                            <li><a href="https://www.airbnb.com/rooms/4188655" class="text-gray-400 hover:text-amber-400 transition">Book Now</a></li>
+                            <li><a href="#faq" class="text-gray-400 hover:text-amber-400 transition">FAQ</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-amber-400 transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact info -->
+                    <div class="col-span-2 md:col-span-1">
+                        <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                        <ul class="space-y-2">
+                            <li class="text-gray-400">
+                                <a href="mailto:wal61ker@gmail.com" class="hover:text-amber-400 transition">wal61ker@gmail.com</a>
+                            </li>
+                            <li class="text-gray-400">
+                                <a href="tel:+16063082745" class="hover:text-amber-400 transition">+1 606-308-2745</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2025. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+    ==============================================
+    JAVASCRIPT
+    ==============================================
+    -->
+    <script>
+        // Wait for the DOM to be fully loaded before running scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu functionality
+            const mobileMenuButton = document.querySelector('nav button');
+            const mobileMenu = document.querySelector('.hidden.fixed.inset-0');
+            const closeButton = document.querySelector('.hidden.fixed.inset-0 button');
+            
+            // Open mobile menu when hamburger button is clicked
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('hidden');
+            });
+            
+            // Close mobile menu when X button is clicked
+            closeButton.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('.hidden.fixed.inset-0 a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Offset for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Booking form submission handler
+            const bookingForm = document.getElementById('booking-form');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your booking request! We will contact you shortly to confirm availability.');
+                    bookingForm.reset();
+                });
+            }
+            
+            // Contact form submission handler
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you as soon as possible.');
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'943c3fbce788732b',t:'MTc0NzkxNjIzMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
