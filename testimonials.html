@@ -483,7 +483,11 @@
         </div>
 
         <script>
-            feather.replace();
+            document.addEventListener('DOMContentLoaded', function () {
+                if (typeof feather !== 'undefined') {
+                    feather.replace();
+                }
+            });
         </script>
 </body>
 
