@@ -1,0 +1,26 @@
+{
+  "name": "buckcreek",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/razodin137/buckcreekbungalows.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/razodin137/buckcreekbungalows/issues"
+  },
+  "homepage": "https://github.com/razodin137/buckcreekbungalows#readme",
+  "dependencies": {
+    "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

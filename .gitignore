@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+*.log
+# Backups created during optimization
+images/backup_*
+# Optional: if you want to ignore the generated CSS
+# output.css
