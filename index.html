@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buck Creek Bungalows - Lake Cumberland Cabin Rentals</title>
+    <meta name="description"
+        content="Experience the best of Lake Cumberland at Buck Creek Bungalows. Cozy, solar-powered cabins in Somerset, KY, perfect for fishing, boating, and relaxation.">
+    <meta name="robots" content="index, follow">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <link rel="stylesheet" href="output.css">
     <script src="https://unpkg.com/feather-icons"></script>
@@ -30,7 +33,7 @@
         }
 
         .hero-bg {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/20150720_143243.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/optimized/20150720_143243.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -189,8 +192,11 @@
                         </div>
                     </div>
                     <div data-aos="fade-left" data-aos-delay="400">
-                        <img src="/images/2025-01-26(7).jpg" alt="Buck Creek Bungalows"
-                            class="rounded-2xl shadow-2xl w-full h-96 object-cover">
+                        <picture>
+                            <source srcset="images/optimized/2025-01-26(7).webp" type="image/webp">
+                            <img src="images/optimized/2025-01-26(7).jpg" alt="Buck Creek Bungalows"
+                                class="rounded-2xl shadow-2xl w-full h-96 object-cover">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -203,37 +209,76 @@
                     <p class="text-xl text-gray-600">Explore our beautiful cabin rental in Somerset, Kentucky</p>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" data-aos="fade-up">
-                    <img src="/images/2020-06-19.png" alt="Cabin exterior"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/730a0cb6-7716-4c99-b731-2cf02d2e2592.jpg" alt="Lake view"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/626b84bb-f398-4b5e-9efc-3aaf24bb38e1.jpg" alt="Interior"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/7b84fea8-5448-4cb4-8c6b-084e071d97a3.jpg" alt="Deck"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/2025-01-26(1).jpg" alt="Water activities"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/2025-01-26(4).jpg" alt="Fire pit"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/aa475c5e_original.jpg" alt="Sunset view"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/e5b1c46e-9278-41bf-9a15-bee0689fbb10.jpeg" alt="Cabin interior"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    <picture>
+                        <source srcset="images/optimized/2020-06-19.webp" type="image/webp">
+                        <img src="images/optimized/2020-06-19.png" alt="Cabin exterior"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/730a0cb6-7716-4c99-b731-2cf02d2e2592.webp" type="image/webp">
+                        <img src="images/optimized/730a0cb6-7716-4c99-b731-2cf02d2e2592.jpg" alt="Lake view"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/626b84bb-f398-4b5e-9efc-3aaf24bb38e1.webp" type="image/webp">
+                        <img src="images/optimized/626b84bb-f398-4b5e-9efc-3aaf24bb38e1.jpg" alt="Interior"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/7b84fea8-5448-4cb4-8c6b-084e071d97a3.webp" type="image/webp">
+                        <img src="images/optimized/7b84fea8-5448-4cb4-8c6b-084e071d97a3.jpg" alt="Deck"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/2025-01-26(1).webp" type="image/webp">
+                        <img src="images/optimized/2025-01-26(1).jpg" alt="Water activities"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/2025-01-26(4).webp" type="image/webp">
+                        <img src="images/optimized/2025-01-26(4).jpg" alt="Fire pit"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/aa475c5e_original.webp" type="image/webp">
+                        <img src="images/optimized/aa475c5e_original.jpg" alt="Sunset view"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/e5b1c46e-9278-41bf-9a15-bee0689fbb10.webp" type="image/webp">
+                        <img src="images/optimized/e5b1c46e-9278-41bf-9a15-bee0689fbb10.jpg" alt="Cabin interior"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
                 </div>
                 <!-- Banner Image -->
                 <div class="mb-8" data-aos="fade-up" data-aos-delay="200">
-                    <img src="/images/lakewinter.jpg" alt="Lake Cumberland Panorama"
-                        class="rounded-2xl shadow-2xl w-full h-64 md:h-96 object-cover">
+                    <picture>
+                        <source srcset="images/optimized/lakewinter.webp" type="image/webp">
+                        <img src="images/optimized/lakewinter.jpg" alt="Lake Cumberland Panorama"
+                            class="rounded-2xl shadow-2xl w-full h-64 md:h-96 object-cover">
+                    </picture>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="400">
-                    <img src="/images/2025-01-26(5).jpg" alt="Evening relaxation"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/2025-01-26(7).jpg" alt="Outdoor dining"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/2025-01-26(8).jpg" alt="Stargazing"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
-                    <img src="/images/2025-01-26(10).jpg" alt="Nature walk"
-                        class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    <picture>
+                        <source srcset="images/optimized/2025-01-26(5).webp" type="image/webp">
+                        <img src="images/optimized/2025-01-26(5).jpg" alt="Evening relaxation"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/2025-01-26(7).webp" type="image/webp">
+                        <img src="images/optimized/2025-01-26(7).jpg" alt="Outdoor dining"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/2025-01-26(8).webp" type="image/webp">
+                        <img src="images/optimized/2025-01-26(8).jpg" alt="Stargazing"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
+                    <picture>
+                        <source srcset="images/optimized/2025-01-26(10).webp" type="image/webp">
+                        <img src="images/optimized/2025-01-26(10).jpg" alt="Nature walk"
+                            class="rounded-lg shadow-lg w-full h-48 object-cover">
+                    </picture>
                 </div>
             </div>
         </section>
@@ -339,8 +384,11 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row items-center justify-between">
                     <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
-                        <img src="/images/2025-01-26(5).jpg" alt="Enjoy Yourself"
-                            class="rounded-2xl shadow-2xl w-full h-80 object-cover">
+                        <picture>
+                            <source srcset="images/optimized/2025-01-26(5).webp" type="image/webp">
+                            <img src="images/optimized/2025-01-26(5).jpg" alt="Enjoy Yourself"
+                                class="rounded-2xl shadow-2xl w-full h-80 object-cover">
+                        </picture>
                     </div>
 
                     <div class="md:w-1/2 md:pl-12 text-center md:text-left" data-aos="fade-left">

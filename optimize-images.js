@@ -6,79 +6,80 @@ const imagesDir = path.join(__dirname, 'images');
 const outputDir = path.join(__dirname, 'images/optimized');
 
 if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir);
+    fs.mkdirSync(outputDir, { recursive: true });
 }
 
-const largeImages = [
-    'lakewinter.jpg',
-    '20150720_143243.jpg',
-    '730a0cb6-7716-4c99-b731-2cf02d2e2592.jpg',
-    '2020-06-19.png',
-    'e5b1c46e-9278-41bf-9a15-bee0689fbb10.jpeg',
-    'aa475c5e_original.jpg'
-];
+// Configuration for resizing
+// 1920w = Large desktop hero
+// 1024w = Desktop content / Tablet hero
+// 640w = Mobile hero / Desktop grid
+// 320w = Mobile grid
+const sizes = [1920, 1024, 640];
 
 async function optimizeImages() {
     const files = fs.readdirSync(imagesDir);
 
     for (const file of files) {
-        if (file.match(/\.(jpg|jpeg|png)$/i) && !file.includes('optimized')) {
-            const inputPath = path.join(imagesDir, file);
-            
-            // Basic optimization for all images
-            // Convert to WebP for modern support
-             const webpOutput = path.join(imagesDir, path.parse(file).name + '.webp');
-             // Only create if it doesn't exist
-             if (!fs.existsSync(webpOutput)) {
-                 await sharp(inputPath)
-                    .webp({ quality: 80 })
-                    .toFile(webpOutput)
-                    .then(() => console.log(`Generated WebP: ${webpOutput}`))
-                    .catch(err => console.error(`Error processing ${file}:`, err));
-             }
+        // Skip previously optimized backups or non-image files
+        if (!file.match(/\.(jpg|jpeg|png)$/i) || file.startsWith('backup_')) {
+            continue;
+        }
 
-            // Specialized resizing for known large images
-            if (largeImages.includes(file)) {
-                console.log(`Optimizing large image: ${file}`);
-                // Overwrite original with optimized JPEG/PNG? 
-                // No, let's keep original safely and link to new ones or rename.
-                // For this task, to be safe, I'll create a .min version or just overwrite if I'm confident.
-                // The implementation plan said "Compress and resize". 
-                // Let's create optimized versions with same name in a temp folder then move them back if successful?
-                // Actually, let's just make a backup of the big ones.
-                
-                const backupPath = path.join(imagesDir, 'backup_' + file);
-                 if (!fs.existsSync(backupPath)) {
-                    fs.copyFileSync(inputPath, backupPath);
-                 }
+        const inputPath = path.join(imagesDir, file);
+        const fileName = path.parse(file).name;
+        // Output base name (e.g. "images/optimized/my-image")
+        const outputBase = path.join(outputDir, fileName);
 
-                 // Resize logic based on usage
-                 let pipeline = sharp(inputPath);
-                 
-                 // lakewinter.jpg is a banner, maybe max width 1920
-                 if (file === 'lakewinter.jpg') {
-                     pipeline = pipeline.resize(1920, null, { withoutEnlargement: true });
-                 }
-                 // 20150720_143243.jpg is hero bg, max width 1920
-                 if (file === '20150720_143243.jpg') {
-                     pipeline = pipeline.resize(1920, null, { withoutEnlargement: true });
-                 }
-                 
-                 // Others appear to be gallery images, maybe 800-1000px width?
-                 if (!['lakewinter.jpg', '20150720_143243.jpg'].includes(file)) {
-                     pipeline = pipeline.resize(1024, null, { withoutEnlargement: true });
-                 }
+        console.log(`Processing: ${file}`);
 
-                 await pipeline
-                    .jpeg({ quality: 80, mozjpeg: true })
-                    .toFile(path.join(outputDir, file))
-                    .then(() => {
-                        console.log(`Optimized: ${file}`);
-                        // Move back to overwrite original
-                        fs.copyFileSync(path.join(outputDir, file), inputPath);
-                    })
-                    .catch(err => console.error(`Error optimizing ${file}:`, err));
+        try {
+            const image = sharp(inputPath);
+            const metadata = await image.metadata();
+            const originalWidth = metadata.width;
+
+            // 1. Always create a full-size WebP
+            // Copy original dimensions but compressed
+            await image
+                .webp({ quality: 80 })
+                .toFile(`${outputBase}.webp`);
+
+            // 2. Also copy the original as optimized JPG/PNG for fallback (compressed)
+            if (file.endsWith('.png')) {
+                await image.png({ quality: 80 }).toFile(`${outputBase}.png`);
+            } else {
+                await image.jpeg({ quality: 80, mozjpeg: true }).toFile(`${outputBase}.jpg`);
             }
+
+            // 3. Generate resized versions for srcset
+            for (const size of sizes) {
+                if (originalWidth > size) {
+                    // Generate resized WebP
+                    await image
+                        .clone()
+                        .resize(size, null, { withoutEnlargement: true })
+                        .webp({ quality: 80 })
+                        .toFile(`${outputBase}-${size}w.webp`);
+
+                    // Generate resized JPG/PNG
+                    if (file.endsWith('.png')) {
+                        await image
+                            .clone()
+                            .resize(size, null, { withoutEnlargement: true })
+                            .png({ quality: 80 })
+                            .toFile(`${outputBase}-${size}w.png`);
+                    } else {
+                        await image
+                            .clone()
+                            .resize(size, null, { withoutEnlargement: true })
+                            .jpeg({ quality: 80, mozjpeg: true })
+                            .toFile(`${outputBase}-${size}w.jpg`);
+                    }
+                    console.log(`  Expected generated ${size}w variants for ${file}`);
+                }
+            }
+
+        } catch (err) {
+            console.error(`Error processing ${file}:`, err);
         }
     }
 }
