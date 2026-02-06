@@ -1,3 +1,0 @@
-[build]
-  publish = "."    # The root directory where index.html lives
-  command = ""     # No build command since it's a static site
