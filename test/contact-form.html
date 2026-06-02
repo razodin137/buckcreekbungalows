@@ -1,44 +1,72 @@
-<form id="contact-form">
-  <label>Your Name:</label>
-  <input type="text" name="customer_name" required>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf8">
+  <title>Contact</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
 
-  <label>Your Email:</label>
-  <input type="email" name="customer_email" required>
+<body>
 
-  <label>Message:</label>
-  <textarea name="customer_message" required></textarea>
+<main>
+  <h1>Contact</h1>
 
-  <button type="submit">Submit</button>
-</form>
+  <form method="POST" action="/api/submit">
 
-<script>
-  document.getElementById('contact-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
+    <div class="input">
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text" />
+    </div>
 
-    const formData = {
-      name: e.target.customer_name.value,
-      email: e.target.customer_email.value,
-      message: e.target.customer_message.value
-    };
+    <div class="input">
+      <label for="email">Email Address</label>
+      <input id="email" name="email" type="email" />
+    </div>
 
-    try {
-      const res = await fetch('https://calm-recipe-1d8b.jcamnorman.workers.dev/api/forms', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
+    <div class="input">
+      <label for="referers">How did you hear about us?</label>
+      <select id="referers" name="referers">
+        <option hidden disabled selected value></option>
+        <option value="Facebook">Facebook</option>
+        <option value="Twitter">Twitter</option>
+        <option value="Google">Google</option>
+        <option value="Bing">Bing</option>
+        <option value="Friends">Friends</option>
+      </select>
+    </div>
 
-      if (res.ok) {
-        alert('Message sent.');
-        e.target.reset();
-      } else {
-        alert('Failed to send. Check Worker logs.');
-      }
-    } catch (err) {
-      alert('Network error.');
-      console.error(err);
-    }
-  });
-</script>
+    <div class="checklist">
+      <label>What are your favorite movies?</label>
+      <ul>
+        <li>
+          <input id="m1" type="checkbox" name="movies" value="Space Jam" />
+          <label for="m1">Space Jam</label>
+        </li>
+        <li>
+          <input id="m2" type="checkbox" name="movies" value="Little Rascals" />
+          <label for="m2">Little Rascals</label>
+        </li>
+        <li>
+          <input id="m3" type="checkbox" name="movies" value="Frozen" />
+          <label for="m3">Frozen</label>
+        </li>
+        <li>
+          <input id="m4" type="checkbox" name="movies" value="Home Alone" />
+          <label for="m4">Home Alone</label>
+        </li>
+      </ul>
+    </div>
+
+    <!-- THIS is what was missing -->
+    <div class="input">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6"></textarea>
+    </div>
+
+    <button type="submit">Submit</button>
+
+  </form>
+</main>
+
+</body>
+</html>
