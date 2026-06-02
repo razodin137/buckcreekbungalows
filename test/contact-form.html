@@ -8,30 +8,37 @@
   <label>Message:</label>
   <textarea name="customer_message" required></textarea>
 
-  <button type="submit">Submit Form</button>
+  <button type="submit">Submit</button>
 </form>
 
 <script>
   document.getElementById('contact-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const formData = {
       name: e.target.customer_name.value,
       email: e.target.customer_email.value,
       message: e.target.customer_message.value
     };
 
-    const response = await fetch('https://worker-email-form-rev2.YOUR_SUBDOMAIN.workers.dev/api/forms', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
+    try {
+      const res = await fetch('https://calm-recipe-1d8b.jcamnorman.workers.dev/api/forms', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-    if (response.ok) {
-      alert('Thank you! Your message has been sent.');
-      e.target.reset();
-    } else {
-      alert('Oops, something went wrong.');
+      if (res.ok) {
+        alert('Message sent.');
+        e.target.reset();
+      } else {
+        alert('Failed to send. Check Worker logs.');
+      }
+    } catch (err) {
+      alert('Network error.');
+      console.error(err);
     }
   });
 </script>
