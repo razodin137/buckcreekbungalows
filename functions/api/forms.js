@@ -40,11 +40,16 @@ export async function onRequestPost(context) {
         personalizations: [
           {
             to: [{ email: "gerald@buckcreekbungalows.com" }],
+            dkim_domain: "buckcreekbungalows.com",
           },
         ],
         from: {
           email: "noreply@buckcreekbungalows.com",
-          name: "Buck Creek Bungalows Contact Form",
+          name: "Buck Creek Bungalows",
+        },
+        reply_to: {
+          email: output.email,
+          name: output.name || "Guest",
         },
         subject: `New Contact Form Submission from ${output.name || "Guest"}`,
         content: [
@@ -68,7 +73,7 @@ export async function onRequestPost(context) {
       const error = await emailResponse.text();
       console.error("Mailchannels error:", error);
       return new Response(
-        JSON.stringify({ ok: false, error: "Failed to send email" }),
+        JSON.stringify({ ok: false, error: "Failed to send email: " + error }),
         {
           status: 500,
           headers: { "Content-Type": "application/json" },
