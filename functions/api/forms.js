@@ -1,57 +1,59 @@
 /**
- * POST /api/forms
- * Handle form submissions and send email via Mailchannels
+ * Cloudflare Pages Function: /api/forms
+ * Accepts HTML form posts or JSON and forwards them via MailChannels.
  */
+
+const jsonHeaders = {
+  "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type"
+};
+
+export async function onRequestOptions() {
+  return new Response(null, { status: 204, headers: jsonHeaders });
+}
+
 export async function onRequestPost(context) {
   try {
-    // Parse form data from request
-    const formData = await context.request.formData();
-
-    // Convert FormData to JSON object
-    // NOTE: Handles multiple values per key
     let output = {};
-    for (let [key, value] of formData) {
-      let tmp = output[key];
-      if (tmp === undefined) {
+    const contentType = context.request.headers.get("content-type") || "";
+
+    if (contentType.includes("application/json")) {
+      output = await context.request.json();
+    } else {
+      const formData = await context.request.formData();
+      for (const [key, value] of formData.entries()) {
         output[key] = value;
-      } else {
-        output[key] = [].concat(tmp, value);
       }
     }
 
-    // Validate required fields
     if (!output.email || !output.message) {
       return new Response(
         JSON.stringify({ ok: false, error: "Email and message are required" }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
+        { status: 400, headers: jsonHeaders }
       );
     }
 
-    // Send email via Mailchannels
     const emailResponse = await fetch("https://api.mailchannels.net/tx/v1/send", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         personalizations: [
           {
             to: [{ email: "gerald@buckcreekbungalows.com" }],
-            dkim_domain: "buckcreekbungalows.com",
-          },
+            dkim_domain: "buckcreekbungalows.com"
+          }
         ],
         from: {
           email: "noreply@buckcreekbungalows.com",
-          name: "Buck Creek Bungalows",
+          name: "Buck Creek Bungalows"
         },
         reply_to: {
           email: output.email,
-          name: output.name || "Guest",
+          name: output.name || "Guest"
         },
-        subject: `New Contact Form Submission from ${output.name || "Guest"}`,
+        subject: `Buck Creek Contact Form: ${output.subject || "General Inquiry"}`,
         content: [
           {
             type: "text/html",
@@ -62,38 +64,29 @@ export async function onRequestPost(context) {
               <p><strong>Phone:</strong> ${output.phone || "Not provided"}</p>
               <p><strong>Subject:</strong> ${output.subject || "Not specified"}</p>
               <p><strong>Message:</strong></p>
-              <p>${(output.message || "").replace(/\n/g, "<br>")}</p>
-            `,
-          },
-        ],
-      }),
+              <p>${String(output.message || "").replace(/\n/g, "<br>")}</p>
+            `
+          }
+        ]
+      })
     });
 
     if (!emailResponse.ok) {
-      const error = await emailResponse.text();
-      console.error("Mailchannels error:", error);
+      const errorText = await emailResponse.text();
       return new Response(
-        JSON.stringify({ ok: false, error: "Failed to send email: " + error }),
-        {
-          status: 500,
-          headers: { "Content-Type": "application/json" },
-        }
+        JSON.stringify({ ok: false, error: errorText }),
+        { status: 502, headers: jsonHeaders }
       );
     }
 
-    // Success response
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
-      headers: { "Content-Type": "application/json" },
+      headers: jsonHeaders
     });
-  } catch (err) {
-    console.error("Error:", err);
+  } catch (error) {
     return new Response(
-      JSON.stringify({ ok: false, error: err.message }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      }
+      JSON.stringify({ ok: false, error: error.message }),
+      { status: 500, headers: jsonHeaders }
     );
   }
 }
